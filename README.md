@@ -10,8 +10,8 @@ Benchmark #1: calcmass shapes_500k_bulk.dat
 
 ## nastran-rs - Parallel Parsing
 Benchmark #1: calcmass shapes_500k_bulk.dat
-  Time (mean ± σ):     613.2 ms ±   5.7 ms    [User: 1.754 s, System: 0.198 s]
-  Range (min … max):   605.6 ms … 621.0 ms    10 runs
+  Time (mean ± σ):     577.4 ms ±  19.6 ms    [User: 1.803 s, System: 0.196 s]
+  Range (min … max):   559.7 ms … 612.7 ms    10 runs
  
 ## pyNastran
 Benchmark #1: python3 mass.py shapes_500k.dat
