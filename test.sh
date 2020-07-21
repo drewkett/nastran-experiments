@@ -9,7 +9,14 @@ cargo install --root . --git https://github.com/drewkett/nastran-rs --branch mas
 
 hyperfine --warmup 1 "calcmass shapes_500k_bulk.dat"
 
-python3 -m venv venv
-./venv/scripts/pip install pynastran
+cargo install --root . --git https://github.com/drewkett/nastran-rs --branch parallel-parser nastran --bin calcmass
 
-hyperfine --warmup 1 "./venv/scripts/python mass.py shapes_500k.dat"
+hyperfine --warmup 1 "calcmass shapes_500k_bulk.dat"
+
+python3 -m venv venv
+
+PATH=./venv/bin:$PATH
+
+pip install pynastran
+
+hyperfine --warmup 1 "python mass.py shapes_500k.dat"
