@@ -5,13 +5,13 @@ cargo install --root . hyperfine
 
 PATH=./bin:$PATH
 
-cargo install --root . --git https://github.com/drewkett/nastran-rs --no-default-features nastran --bin calcmass
+cargo install --root serial --git https://github.com/drewkett/nastran-rs --no-default-features nastran --bin calcmass
 
-hyperfine --warmup 1 "calcmass shapes_500k_bulk.dat"
+hyperfine --warmup 1 "./serial/bin/calcmass shapes_500k_bulk.dat"
 
-cargo install --root . --git https://github.com/drewkett/nastran-rs --features parallel nastran --bin calcmass
+cargo install --root parallel --git https://github.com/drewkett/nastran-rs --features parallel nastran --bin calcmass
 
-hyperfine --warmup 1 "calcmass shapes_500k_bulk.dat"
+hyperfine --warmup 1 "./parallel/bin/calcmass shapes_500k_bulk.dat"
 
 python3 -m venv venv
 
