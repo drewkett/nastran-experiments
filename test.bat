@@ -1,10 +1,10 @@
 cargo install --root . hyperfine
 
-cargo install --root . --git https://github.com/drewkett/nastran-rs --branch master nastran --bin calcmass
+cargo install --root . --git https://github.com/drewkett/nastran-rs --no-default-features nastran --bin calcmass
 
 .\bin\hyperfine --warmup 1 ".\bin\calcmass shapes_500k_bulk.dat"
 
-cargo install --root . --git https://github.com/drewkett/nastran-rs --branch parallel-parser nastran --bin calcmass
+cargo install --root . --git https://github.com/drewkett/nastran-rs --features parallel nastran --bin calcmass
 
 .\bin\hyperfine --warmup 1 ".\bin\calcmass shapes_500k_bulk.dat"
 
